@@ -5169,6 +5169,7 @@
                     routeno: "27",
                     from: "Annamar Petrol Bunk",
                     to: "KEC",
+                    fees:"123 124 125 126 127 128 129 130 131",
                     stopsfrom: {
                         207: 12882,
                         208: 12451,
@@ -7234,6 +7235,7 @@
                             var keys = Object.keys(details.stopsfrom);
                             console.log('obj contains ' + keys.length + ' keys: ' + keys);
                             var k = [];
+                            var k1=details.fees.split(" ");
                             if (this.props.to == 4001) {
                                 var i = this.props.from;
                             } else {
@@ -7246,8 +7248,8 @@
                             var table = document.createElement("table");
                             table.setAttribute('class', 'table table-bordered');
                             var tr = table.insertRow(-1); // TABLE ROW.
-                            var col = ["No", "Bus stop"];
-                            for (var i = 0; i < 2; i++) {
+                            var col = ["No", "Bus stop","Fees"];
+                            for (var i = 0; i < 3; i++) {
                                 var th = document.createElement("th"); // TABLE HEADER.
                                 th.innerHTML = col[i];
                                 tr.appendChild(th);
@@ -7262,6 +7264,8 @@
                                             tabCell.innerHTML = i + 1;
                                         } else {
                                             tabCell.innerHTML = k[i];
+                                            tabCell = tr.insertCell(-1);
+                                            tabCell.innerHTML = k1[i];
                                         }
                                     }
                                 }
@@ -7274,6 +7278,8 @@
                                             tabCell.innerHTML = Math.abs(i - k.length);
                                         } else {
                                             tabCell.innerHTML = k[i];
+                                            tabCell = tr.insertCell(-1);
+                                            tabCell.innerHTML = k1[i];
                                         }
                                     }
                                 }
